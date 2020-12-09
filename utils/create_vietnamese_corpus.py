@@ -46,8 +46,9 @@ def main():
         content = read_from_file(file_path)
         segment_list = segment_string(content)
         filtered_segment_list = filter_characters(segment_list, character_vocab)
-        corpus.append(filtered_segment_list)
-        print(count)
+        corpus = corpus + filtered_segment_list
+        print(f"{file_path}", end='\r')
+        print(f"{count}", end='\r')
         count = count + 1
     print("Length before removing duplications: ", len(corpus))
     corpus = set(corpus)
